@@ -1,6 +1,6 @@
 import { Component} from '@angular/core'
 // import * as EventEmitter from 'events';
-import { WebService } from './web.service';
+import { WebService } from '../../services/web.service';
 // import { Output, EventEmitter } from '@angular/core';
 
 

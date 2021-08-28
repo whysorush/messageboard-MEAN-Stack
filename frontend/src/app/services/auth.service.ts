@@ -45,7 +45,7 @@ export class AuthService{
         if(!authResponse.token){
             return;
         }
-        console.log(res.json())
+        // console.log(res.json())
         localStorage.setItem(this.TOKEN_KEY,authResponse.token)
         localStorage.setItem(this.NAME_KEY,authResponse.firstName)
         this.router.navigate(['/']);

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import{ NavComponent } from './nav.component';
+import{ NavComponent } from './component/nav-component/nav.component';
 
 @Component({
   selector: 'my-app',

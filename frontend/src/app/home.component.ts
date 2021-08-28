@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
-import { MessageComponent } from './messages.component';
-import { NewMessageComponent } from './new-message.component'
-import{ NavComponent } from './nav.component';
+import { MessageComponent } from './component/messages-component/messages.component';
+import { NewMessageComponent } from './component/messages-component/new-message.component'
+import{ NavComponent } from './component/nav-component/nav.component';
 
 @Component({
   selector: 'home',
   template: `
-            <new-message></new-message>
-            <messages></messages>
+            <group></group>
+            
     `,
   styleUrls: ['./app.component.css']
 })

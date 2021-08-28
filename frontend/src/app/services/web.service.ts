@@ -13,24 +13,31 @@ import { map } from 'rxjs/operators';
 export class WebService{
 BASE_URL = 'http://localhost:2000/api';
 
-private messageStore =[{text:'', owner :''}];
+private messageStore =[{owner :'',text:''}];
 
 private messageSubject = new Subject<any[]>();
 
 messages = this.messageSubject.asObservable();
+messagesLimit = [{owner :'',text:''}];
 
 constructor(private http: Http , private sb : MatSnackBar ,private auth: AuthService  ){
   this.getMessages(user);
 }
 
      getMessages(user: any){
+
         user = (user) ? '/' + user : '';
         this.http.get(this.BASE_URL + '/messages'+ user).subscribe(response =>{
-        this.messageStore = response.json();
+        
+          this.messageStore = response.json();
+          this.messagesLimit=this.messageStore
+          // console.log(this.messagesLimit)
         this.messageSubject.next(this.messageStore);
+          
         }, error =>{
           this.handleError("unable to get message");
         })
+        
       
       
     }

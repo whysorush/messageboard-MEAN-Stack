@@ -1,13 +1,13 @@
 import { Component} from '@angular/core'
-import {AuthService} from './auth.service';
+import {AuthService} from '../../services/auth.service';
 
 @Component({
     selector: 'nav',
     template: `
-        <mat-toolbar color="primary"> 
-            
-            <button mat-button routerLink="/" > Messages Board</button>
-            <button mat-button routerLink="/messages" > Messages</button>
+        <mat-toolbar color="accent"> 
+            <button mat-button routerLink="/" > Global Group </button>
+            <button mat-button routerLink="/board" > Messages Board</button>
+            <button mat-button routerLink="/messages"> Messages</button>
             <span style="flex:1 1 auto"></span>
             <button *ngIf="!auth.isAuthenticated"mat-button routerLink="/login" > Login </button>
 

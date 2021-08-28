@@ -8,7 +8,9 @@ app.use(cors())
 
 app.use(bodyParser.json());
 
-var messages =[{text:'Some1 Text', owner :'Rush'},{text:'Next Text', owner :'Rushabh'}];
+//---------------Declaring static message and login details
+
+var messages =[{owner :'Rush', text:'Some1 Text' },{owner :'Rushabh', text:'Some12 Text'}];
 var users = [{firstName:'a',lastName:'a',email:'a',password:'a', id:0}] ;
 
 app.use((req,res,next) => {
@@ -19,6 +21,8 @@ app.use((req,res,next) => {
 
 var api = express.Router();
 var auth = express.Router();
+
+//---------------Route 
 
 api.get('/messages',(req,res)=>{
     res.json(messages)
@@ -71,6 +75,9 @@ auth.post('/register',(req,res)=>{
     user.id =index;
     sendToken(user,res);
 })
+
+//--------------- Middleware Authentication function  
+
 function sendToken(user,res){
     var token = jwt.sign(user.id,'123');
     res.json({firstName: user.firstName, token});
@@ -87,7 +94,7 @@ function checkAuthenticated (req,res,next){
     
     var token = req.header('authorization').split(' ')[1]   ;
     var payload = jwt.decode(token,' 123');
-    
+     
 
     if(!payload)
     {
