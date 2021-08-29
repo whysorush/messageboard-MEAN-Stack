@@ -8,13 +8,14 @@ import {AuthService} from '../../services/auth.service';
 @Component({
     selector: 'messages',
     template: `
-    
-
+    <div>
+    <button routerLink="/login" *ngIf="!auth.isAuthenticated" mat-button color="accent">Login to send message</button>
+    </div>
     <div *ngFor="let message of webService.messages | async">
-        <mat-card class="card" *ngIf="auth.isAuthenticated">
+        <mat-card class="card" *ngIf="auth.isAuthenticated" [routerLink]="['/messages',message.owner]">
         <div >
 
-            <mat-card-title  [routerLink]="['/messages',message.owner]" style="margin-right:100%; cursor: pointer">{{message.owner}} </mat-card-title> 
+            <mat-card-title   style="margin-right:100%; cursor: pointer">{{message.owner}} </mat-card-title> 
             <mat-card-content >{{message.text}} </mat-card-content>
             </div>
         </mat-card>

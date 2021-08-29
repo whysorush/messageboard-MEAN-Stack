@@ -10,14 +10,14 @@ import { WebService } from '../../services/web.service';
   selector: 'group',
   template: `
   
-  <mat-card class="card">
+  <mat-card class="card"  [routerLink]="['/board']" >
  
-  <mat-card-title [routerLink]="['/board']" style="margin-right:100%;">
-  Global Group
+  <mat-card-title >
+  <h1>Global Group</h1>
    </mat-card-title>
   <mat-card-content></mat-card-content>
     `,
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./message.component.css']
 })
 export class MessageServerComponent {
     constructor (public  webService : WebService){}
